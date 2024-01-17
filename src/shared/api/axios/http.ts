@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { Auth } from "shared/path";
+
 import { getResponseData, getResponseError } from "./lib";
 
 class Http {
@@ -7,11 +9,16 @@ class Http {
   private _apiUrl =
     process.env.API ||
     `${window.location.protocol}//api.${window.location.hostname}/api`;
-
   constructor() {
     this._axios = axios.create({
       baseURL: this._apiUrl,
       withCredentials: true,
+      validateStatus: function (status) {
+        if (status === 401) {
+          window.location.href = Auth;
+        }
+        return true;
+      },
     });
 
     this._axios.interceptors.request.use(

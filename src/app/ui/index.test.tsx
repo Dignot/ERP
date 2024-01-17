@@ -2,7 +2,7 @@ import { getUserApi } from "shared/api";
 import { adminMock } from "shared/api/user";
 import { customRender, screen } from "shared/test/renderTest";
 
-import { Container } from ".";
+import { Container } from "../..";
 
 jest.mock("shared/api", () => ({
   getUserApi: jest.fn(),
