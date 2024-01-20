@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Auth } from "shared/path";
+import { AUTH } from "shared/constant/path";
 
 import { getResponseData, getResponseError } from "./lib";
 
@@ -15,7 +15,7 @@ class Http {
       withCredentials: true,
       validateStatus: function (status) {
         if (status === 401) {
-          window.location.href = Auth;
+          window.location.href = AUTH;
         }
         return true;
       },

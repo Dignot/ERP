@@ -1,7 +1,13 @@
 import { render } from "react-dom";
 
-import { Container } from "..";
+import { Container } from "./ui";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root");
 
-render(<Container />, container);
+
+render(
+    <BrowserRouter>
+<Container />
+</BrowserRouter>
+, container);

@@ -1,15 +1,16 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Router } from "react-router-dom";
 
-import Authorization from "./../../../pages/ui/authorization/index";
-import Home from "./../../../pages/ui/houm/ui/index";
+import Home from "./../../../pages/houm";
+import { Authorization } from "./../../../pages/authorization/ui";
 
 export const AppRoute = () => {
   return (
-    <BrowserRouter>
+   <>
       <Routes>
+      <Route path="/AUTH" element={<Authorization />} />
         <Route path="/" element={<Home />} />
-        <Route path="auth" element={<Authorization />} />
+        
       </Routes>
-    </BrowserRouter>
+  </>
   );
 };
