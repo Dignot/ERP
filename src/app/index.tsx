@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 
-import { Container } from "./ui";
+import { Container } from "..";
 
 const container = document.getElementById("root");
 
