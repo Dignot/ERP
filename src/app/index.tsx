@@ -1,6 +1,8 @@
 import { render } from "react-dom";
 
-import { Container } from "..";
+import { Container } from "./ui";
+
+import "./index.css"
 
 const container = document.getElementById("root");
 

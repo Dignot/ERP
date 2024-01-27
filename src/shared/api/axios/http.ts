@@ -1,24 +1,24 @@
 import axios from "axios";
-
-import { Auth } from "shared/path";
+import { HttpStatus } from "shared/constants/http_status";
+import { AUTH_PAGE_PATH } from "shared/constants/path";
 
 import { getResponseData, getResponseError } from "./lib";
 
 class Http {
   private _axios;
-  private _apiUrl =
-    process.env.API ||
-    `${window.location.protocol}//api.${window.location.hostname}/api`;
+  private _apiUrl ='/api';
+
   constructor() {
     this._axios = axios.create({
       baseURL: this._apiUrl,
       withCredentials: true,
-      validateStatus: function (status) {
-        if (status === 401) {
-          window.location.href = Auth;
+      validateStatus: (status) => {
+        if (status === HttpStatus.UNAUTHORIZED) {
+          window.location.pathname = AUTH_PAGE_PATH
         }
-        return true;
-      },
+
+        return true
+      }
     });
 
     this._axios.interceptors.request.use(
